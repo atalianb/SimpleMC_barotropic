@@ -1,0 +1,9 @@
+# Requirements of Python3 for SimpleMC 2.0.
+# pip3 install -r requirements.txt
+numpy
+scipy
+sklearn
+numdifftools
+matplotlib
+deap
+mpi4py
