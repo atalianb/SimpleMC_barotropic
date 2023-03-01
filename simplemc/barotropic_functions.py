@@ -1,5 +1,5 @@
 import numpy as np
-from scipy import interpolate
+#from scipy import interpolate
 ###
 ##Constants
 ####
@@ -27,7 +27,6 @@ def Integrate(func,x0,y0,x,h):
     Y = []
     X.append(x0)
     Y.append(y0)
-    #while x0 < x:
     while y0[0] < 4.90000000000:
     #while y0[0]>0.99:
         y0 = y0 + RK4(func,x0,y0,h) #update next value of y
@@ -35,23 +34,8 @@ def Integrate(func,x0,y0,x,h):
         X.append(x0)
         Y.append(y0)
     return np.array(X),np.array(Y)
-
-def model(data,v,X):
-    V = []
-    x=X
-    RC=v*np.sqrt(G)
-    Int_l = interpolate.interp1d(x,RC)
-    for i in range(len(data)):
-        if data[i] < x[-1]:
-            v=Int_l(data[i])
-            V.append(v)
-        else:
-            #v=0.
-            v=np.sqrt(G*Y[:,0][-1]/(data[i]))
-            V.append(v)
-    return np.array(V)
-
-def Vc(r,kappa,rho0):
+######
+def Vc_(kappa,rho0):
     #ec de estado P=kap*rho
     K = kappa
     y0[1] = K*rho0
@@ -62,5 +46,5 @@ def Vc(r,kappa,rho0):
         return dy
     X,Y=Integrate(rhs,x0,y0,10.,h)
     v=np.sqrt(Y[:,0]/X)
-    V=model(r,v,X)
-    return V
+    RC=v*np.sqrt(G)
+    return X,RC

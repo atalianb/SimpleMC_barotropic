@@ -1,0 +1,22 @@
+INFO:simplemc:Using 6 processors of 8 .
+Initalizing nu density look up table... Done
+Loading  /Users/atalianb/Documents/Doctorado/SimpleMC_barotropic/simplemc/data/Blok_McGaugh_&_Rubin_(2001)/ESO3020120.dat
+Free parameters and values currently accepted:
+Anfw = -8.045757490560675 +/- 0.01
+rs = -7.309803919971486 +/- 0.01
+INFO:simplemc:
+	nlivepoints: 100
+	accuracy: 0.02
+	nested type: multi
+/Users/atalianb/miniconda3/envs/py37/lib/python3.7/site-packages/scipy/_lib/deprecation.py:20: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+  return fun(*args, **kwargs)
+Traceback (most recent call last):
+  File "test.py", line 7, in <module>
+    analyzer.executer()
+  File "/Users/atalianb/Documents/Doctorado/SimpleMC_barotropic/simplemc/DriverMC.py", line 159, in executer
+    self.nestedRunner(iniFile=self.iniFile, **kwargs)
+  File "/Users/atalianb/Documents/Doctorado/SimpleMC_barotropic/simplemc/DriverMC.py", line 380, in nestedRunner
+    pool = pool, queue_size=nprocess, use_pool={'loglikelihood': False})
+  File "/Users/atalianb/Documents/Doctorado/SimpleMC_barotropic/simplemc/analyzers/dynesty/dynesty.py", line 524, in NestedSampler
+    if not np.isfinite(logl):
+ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()

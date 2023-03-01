@@ -2,11 +2,11 @@
 from simplemc.cosmo.paramDefs import Anfw_par, rs_par#, eta_par, phi0_par, phi1_par, phi2_par
 from simplemc.barotropic_functions import *
 import numpy as np
-#from scipy import interpolate
+from scipy import interpolate
 
 
 class RotationCurves():
-    def __init__(self, varya= True, varyb= True):#,varyc=True):#,varyd=True,varye=True):
+    def __init__(self, varya= True, varyb= True):#,varyc=True):,varyd=True,varye=True):
         """
         Class to constrain rotational curves profiles,
             Here we assume a NFW profile
@@ -80,8 +80,10 @@ class RotationCurves():
         #eta = eta
         #phi1 = 10.**(phi1)
         #phi2 = 10.**(phi2)
-       # Vc = Vc_(x,m_a,eps,eta)
-       # self.f = interpolate.interp1d(Vc[0],Vc[1],fill_value='extrapolate')
+        #Vc = Vc_(x,m_a,eps,eta)
+        #self.f = interpolate.interp1d(Vc[0],Vc[1],fill_value='extrapolate')
+        Vc = Vc_(kappa,rho0)
+        self.f = interpolate.interp1d(Vc[0],Vc[1],axis=0, fill_value="extrapolate")
         return True
 
 
@@ -105,8 +107,7 @@ class RotationCurves():
         #phi1 = 10.**(phi1)
         #phi2 = 10.**(phi2)
         #Vc2 = Vc_inter(x,m_a,eps0,phi0,phi1,phi2)
-        #Vc_new = self.f(x)
-        Vc_new = Vc(x,kappa,rho0)
+        Vc_new = self.f(x)
         return np.sqrt(Vc_new)
 
     def prior_loglike(self):
