@@ -77,6 +77,7 @@ class RotationCurves():
         #phi2 = self.phi2
         kappa = 10.**(A)
         rho0 = rs
+        #rho0 = rs
         #eta = eta
         #phi1 = 10.**(phi1)
         #phi2 = 10.**(phi2)

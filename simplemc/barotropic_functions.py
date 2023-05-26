@@ -38,6 +38,7 @@ def Integrate(func,x0,y0,x,h):
 def Vc_(kappa,rho0):
     #ec de estado P=kap*rho
     K = kappa
+    #y0[1] = p0
     y0[1] = K*rho0
     def rhs(x,y):
         dy=np.zeros(2)

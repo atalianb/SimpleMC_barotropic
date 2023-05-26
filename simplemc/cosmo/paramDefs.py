@@ -161,10 +161,12 @@ wq_par = Parameter("wq", -0.9, 0.05, (-1.0, -0.5), "w_q")
 #Anfw_par = Parameter("Anfw",  0.1, 0.01, (0.0, 5.5), "A_s")
 #rs_par = Parameter("rs",  400., 10.0, (0.0, 600.0), "r_s")
 #Barotropic
-Anfw_par = Parameter("Anfw",  np.log10(3.42e-8), 0.01, (np.log10(1.0e-10), np.log10(1.0e-6)), "A_s")
-rs_par =   Parameter("rs", 1.74, 0.01, (0.1, 5.0), "r_s")
+#Kappa
+Anfw_par = Parameter("Anfw",  np.log10(3.42e-8), 0.01, (np.log10(1.0e-9), np.log10(1.0e-7)), "A_s")
+#rho
+rs_par =   Parameter("rs", 1.74, 0.01, (0.01, 10.0), "r_s")
 #P0
-#rs_par =   Parameter("rs",  np.log10(5.96e-8), 0.01, (np.log10(5.0e-8), np.log10(9.1e-8)), "r_s")
+#rs_par =   Parameter("rs",  np.log10(5.96e-8), 0.01, (np.log10(5.0e-8), np.log10(9.0e-7)), "r_s")
 #Anfw->m_a,rs->eps0
 #Anfw_par = Parameter("Anfw",  np.log10(6.37e-24), 0.01, (np.log10(1.0e-26), np.log10(1.0e-20)), "A_s")
 #rs_par =   Parameter("rs",  np.log10(4.47e-4), 0.01, (np.log10(1.0e-6), np.log10(1.0e-2)), "r_s")
